@@ -1,10 +1,8 @@
 ## Languages
 
-Languages, é um repositório localizado no GitHub, com o objetivo de armazenar anotações e códigos das mais variadas linguagens.
-
+![C](https://img.shields.io/static/v1?label=Languages&message=v1.0.0.0&color=purple)
 ![License](https://img.shields.io/github/license/LucasSantus/Languages)
 ![Languages](https://img.shields.io/github/languages/count/LucasSantus/Languages)
-![GitHub repo size](https://img.shields.io/github/repo-size/LucasSantus/Languages)
 
 --------------------------------------------------------------------------------------
 
