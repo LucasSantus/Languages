@@ -4,7 +4,7 @@ Languages, é um repositório localizado no GitHub, com o objetivo de armazenar 
 
 ![License](https://img.shields.io/github/license/LucasSantus/Languages)
 ![Languages](https://img.shields.io/github/languages/count/LucasSantus/Languages)
-![GitHub repo size](https://img.shields.io/github/repo-size/LucasSantus/Linguagens)
+![GitHub repo size](https://img.shields.io/github/repo-size/LucasSantus/Languages)
 
 --------------------------------------------------------------------------------------
 
