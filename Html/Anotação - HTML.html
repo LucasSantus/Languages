@@ -1,0 +1,294 @@
+
+<!-- -->
+
+	------- LISTA DE ANOTAÇÕES - HTML -------
+
+===================================================================================================
+
+===================================================================================================
+
+	== CSS ==
+
+<link rel="stylesheet" type="text/css" href="Nome do arquivo.css">
+
+===================================================================================================
+
+===================================================================================================
+
+	== Inicio ==
+
+	<!-- PÁGINA PRINCIPAL SEMPRE COM NOME: index.html -->
+
+<!DOCTYPE html>	<!-- Está dizendo que está para utilizar o HTML5 -->
+
+<html>
+	<head>
+		<title>Texto</title>
+		<meta charset="utf-8">
+		<meta keywords="Palavra Chave...">
+		<meta description="Insira a Descrição do Site">
+	</head>
+
+	<body>
+
+	</body>
+</html>
+
+===================================================================================================
+
+===================================================================================================
+
+	== Algumas Funções ==
+
+<strong>Texto</strong> 			<!-- Deixa o Texto em Negrito. -->
+<em>Texto</em>  				<!-- Deixa o Texto em Ítalico. -->
+<u>Texto</u>					<!-- Deixa o Texto sobre Underline. -->
+<strike>Texto</strike>			<!-- Deixa o Texto Com um risco no entre ele, sinal de erro. -->
+<br>							<!-- Quebra de Linha. -->
+<title>Texto</title>			<!-- O Título da Página. -->
+<hr>   							<!-- Insere uma Linha na Página. -->
+<p>Texto</p>					<!-- Insere paragrafos. -->
+<meta charset="utf-8"> 			<!-- Formata Assentos. -->
+<meta keywords="Palavra Chave...">					<!-- Para inserir palavras chaves no site. -->
+<meta description="Insira a Descrição do Site">		<!-- A descrição do site. -->
+<label>Item</label>				<!-- Utilizada para deixar melhor organizada itens. -->
+
+<!--
+
+FORM(Formulário)
+
+	action="script/envio.php" 	//Para onde será enviado o formulário.
+	method="POST"				//Método de envio, não mostrando os dados...
+	method="GET"				//Método de envio, mostrando os dados...
+
+TEXTAREA(Mensagem de Texto)
+	
+	cols="tamanho"		//Significa linha, tamanho de linha.
+	rows="tamanho"		//Significa coluna, tamanho de coluna.
+	required="required"	//Para deixar certo campo obrigatório.
+
+INPUT
+
+	type="text"			//Inserir texto.
+	type="password"		//Inserir senha.
+	type="submit"		//Enviar.
+	type="reset"		//Resetar um formulário.
+	type="checkbox"		//Escolher vários itens.
+	type="radio"		//Escolher somente um item.
+	type="number"		//Inserir somente números.
+	type="email"		//Inserir email.
+
+	name="nome"			//Nome dado ao item.
+
+	value="valor"		//Valor que será enviado.
+
+	required="required"	//Para deixar certo campo obrigatório.
+
+	placeholder="Mensagem"	//Inserir mensagem na caixa de texto para o Usuário.
+
+IMG(Imagem)
+
+	src="Endereço Raiz da Imagem" 	//Utilizado para add uma Imagem.
+
+	width="tamanho"					//Utilizado para Modificar o tamanho da Imagem, tanto por (px) ou (%).
+
+	height="tamanho"				//Utilizado para Modificar o tamanho da Imagem, tanto por (px) ou (%).
+
+	alt="Mensagem"					//Utilizado caso aja erro em carregar a Imagem... Uma mensagem será mostrada.
+
+UL(Lista Não Ordenada)
+
+	type = "disk" 			//Lista em forma de disco.
+	type = "circle"			//Lista em forma de circulo.
+	type = "square"			//Lista em forma de quadrado.
+
+OL(Lista Ordenada)
+
+	start = "9"		//Começa a contar do 9
+
+	type = "1" 		//Lista enumerada.
+	type = "A"		//Lista em ordem alfabética Maiuscula.
+	type = "I"		//Lista enumerada com números rômanos Maiusculas.
+	type = "a"		//Lista em ordem alfabética Minuscula.
+	type = "i"		//Lista enumerada com números rômanos Minusculas.
+
+A(Links)
+	
+	target="_self"		//Abre uma nova aba ao clicar.
+	target="_blank"		//Atualiza a aba ao clicar.
+
+TABLE(Tabela)
+
+	border="0" 			//Insere borda na tabela, de 0 até ...
+	width="tamanho"		//Insere um tamanho na tabela, tanto por (px) ou (%).
+
+----------------------------------------------------
+
+	<tr></tr>	//Linha para listar itens na Tabela.
+	<th></th>	//Item em negrito.
+	<td></td>	//Item normal.
+
+-->
+
+===================================================================================================
+
+===================================================================================================
+
+	== Cabeçalho ==
+
+<h1>Texto</h1>
+
+<h2>Texto</h2>
+
+<h3>Texto</h3>
+
+<h4>Texto</h4>
+
+<h5>Texto</h5>
+
+<h6>Texto</h6>
+
+===================================================================================================
+
+===================================================================================================
+
+	== Carregar Imagem ==
+
+<img src="Endereço Raiz da Imagem">
+
+===================================================================================================
+
+===================================================================================================
+
+	== Lista Não Ordenada ==
+
+<ul type ="disc">
+
+	<li> Itens </li> 	
+	<li> Itens </li>
+	<li> Itens </li>
+	
+</ul>	
+
+===================================================================================================
+
+===================================================================================================
+
+	== Lista Ordenada ==
+
+<ol type ="1">		
+			
+	<li> Itens </li>
+	<li> Itens </li>
+	<li> Itens </li>
+
+</ol>
+
+===================================================================================================
+
+===================================================================================================
+
+	== Links ==
+
+<a href="O Nome do Pacote a Qual Ir">Texto</a>	<!-- Inserir o pacote.html a qual deseja linkar -->
+
+-----------------------------------------------
+
+<a href="http://www.google.com">Texto</a>	<!-- Insira por completo o link do site que deseja enviar o usuário -->
+
+===================================================================================================
+
+===================================================================================================
+
+	== Tabelas ==
+
+<table border="0" width="100%">
+
+	<tr>						<!--  Cria uma linha para listar os itens na tabela, em horizontal. -->
+		<th> Código </th>		
+		<th> Produto </th>
+		<th> Preço </th>	
+	</tr>
+
+	<tr>						<!--  Primeiro item com seus Valores. -->
+		<td> 0001 </td>
+		<td> Notebook </td>
+		<td> 3,299,99 </td>	
+	</tr>
+
+	<tr>						<!--  Segundo item com seus Valores. -->
+		<td> 0002 </td>
+		<td> Tablet </td>
+		<td> 459,99 </td>	
+	</tr>
+
+	<tr>						<!--  Terceiro item com seus Valores. -->
+		<td> Desconto </td>
+		<td rowspan="2"> Cupom de Desconto - R$ 10 </td>	<!-- rowspan ="2", está ocupando 2 linhas -->
+		<td colspan="2"> Cupom de Desconto - R$ 20 </td>	<!-- colspan ="2", está ocupando 2 colunas -->
+	</tr>
+</table>
+
+===================================================================================================
+
+===================================================================================================
+
+	== Formulário ==
+
+<form>
+
+	<h2>LOGAR</h2><br>
+	<label>Login:<input type="text" name="login"><br><br></label>
+	<label>Senha:<input type="password" name="senha"><br><br></label>
+	<input type="submit" value="Logar"><br>
+
+</form>
+
+<form action="Para Onde enviará o formulário" method="POST">
+			
+	<h2>CADASTRO</h2><br>
+	<label>Nome:* <input type="text" name="login" required="required"></label><br><br>
+
+	<label>Senha:*<input type="password" name="senha" required="required"><br><br></label>
+	<label>E-mail:*<input type="email" name="email" required="required"><br><br></label>
+	<label>CEP:*<input type="number" name="cep" required="required"><br><br></label>
+	<label>Data de Nascimento:*<input type="date" name="data" required="required"><br><br></label>
+
+	<label>
+		Sexo:
+		<input type="radio" name="sexo" value="M">
+		Masculino
+		<input type="radio" name="sexo" value="F">
+		Feminino<br>
+	</label>
+
+	<label>	
+		<h3>Interesses</h3>
+		<input type="checkbox" name="interesses" value="Futebol">Futebol<br>
+		<input type="checkbox" name="interesses" value="Computador">Computador<br>
+		<input type="checkbox" name="interesses" value="Cursos">Cursos<br>
+		<input type="checkbox" name="interesses" value="Vídeo Game">Vídeo Game<br>
+	</label>
+
+	<label>
+		<h3>Estado</h3>
+		<select name="estado" >
+			<option value="MG">MG</option>
+			<option value="SP">SP</option>
+			<option value="RJ">RJ</option>
+			<option value="RS">RS</option>
+		</select>
+	</label><br><br>
+			
+	<label>
+		Observações<br>
+		<textarea placeholder="Digite sua Mensagem" required="required" cols="50" rows="50"></textarea><br>
+		<input type="reset" name="resetar" value="Limpar Dados"><br><br>
+		<input type="submit" name="Cadastrar" value="Enviar">
+	</label>
+</form>
+
+===================================================================================================
+
+===================================================================================================
+
