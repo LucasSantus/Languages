@@ -1,6 +1,6 @@
 ## Languages
 
-![C](https://img.shields.io/static/v1?label=Languages&message=v1.0.0.0&color=purple)
+![Languages](https://img.shields.io/static/v1?label=Languages&message=v1.0.0.0&color=purple)
 ![License](https://img.shields.io/github/license/LucasSantus/Languages)
 ![Languages](https://img.shields.io/github/languages/count/LucasSantus/Languages)
 
