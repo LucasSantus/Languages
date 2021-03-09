@@ -1,121 +1,4 @@
-# DESAFIO
-# Fechar possiveis brechas pra erro.
-# Adicionar o nome ao eleitor.
-# Adicionar um menu se a pessoa quer cadastrar um candidato ou eleitor
-# No menu tbm tem a opção de votar ou ver apuração de votos
-# Dica coloque um campo no eleitor pra poder indicar quem vai votar
-
-'''
-
-opcaoVoto = []
-eleitores = 0
-qtdCandidatos = 0
-
-id_candidato = 0
-id_eleitor = 0
-
-def eleicao():
-    try:
-        qtdCandidatos = int(input("Quantidade de candidatos pra eleição: "))
-
-        while qtdCandidatos < 1:
-            if qtdCandidatos < 1:
-                print("Quantidade Inválida!")
-                qtdCandidatos = int(input("Quantidade de candidatos pra eleição: "))
-
-        cadastrar_candidatos(qtdCandidatos)
-
-        print("------------------------\n")
-        eleitores = int(input("Quantidade de eleitores para votar: "))
-
-        for e in range(eleitores):
-            cont = 1
-            print("Eleitor - %s" % (e+1))
-            for o in opcaoVoto:
-                print("Pra votar '%s' digite: %s" % (o['nome'], cont))
-                cont += 1
-
-            voto = int(input("Digite sua opçao: "))
-            opcaoVoto[voto-1]['qtdVotos'] += 1
-            print("------------------------\n")
-
-        for c in opcaoVoto:
-            print("------------------------\n")
-            print("Opção: %s" % c['nome'])
-            print("Total de votos: %s" % c['qtdVotos'])
-            print("------------------------\n")
-
-        votoBranco = opcaoVoto[-2]['qtdVotos']
-        votoNulo = opcaoVoto[-1]['qtdVotos']
-
-        percentualBranco = (votoBranco*100)/eleitores
-        percentualNulo = (votoNulo*100)/eleitores
-        print('Percentual de votos branco foi de "%0.2f"' % percentualBranco)
-        print('Percentual de votos nulo foi de "%0.2f"' % percentualNulo)
-
-    except:
-        print("Faliceu")
-
-def cadastrar_eleitores(qtdEleitores):
-
-    for cont in range(qtdEleitores):
-        nome = input("Nome do eleitor: ")
-        print("------------------------\n")
-        candidato = {
-            "id": id_candidato,
-            "nome": nome,
-            "qtdVotos": 0,
-        }
-        opcaoVoto.append(candidato)
-
-    branco = {
-        "nome": "Voto branco",
-        "qtdVotos": 0,
-    }
-    opcaoVoto.append(branco)
-
-    nulo = {
-        "nome": "Voto nulo",
-        "qtdVotos": 0,
-    }
-    opcaoVoto.append(nulo)
-
-def votar():
-    print("Selecione o Eleitor para votação: ")
-
-def cadastrar_candidatos(qtdCandidatos):
-
-    for cont in range(qtdCandidatos):
-        print("------------------------\n")
-
-        nome = input("Nome:\n")
-
-        candidato = {
-            "id": id_candidato,
-            "nome": nome,
-            "qtdVotos": 0,
-        }
-
-        opcaoVoto.append(candidato)
-
-    branco = {
-        "nome": "Voto branco",
-        "qtdVotos": 0,
-    }
-    opcaoVoto.append(branco)
-
-    nulo = {
-        "nome": "Voto nulo",
-        "qtdVotos": 0,
-    }
-    opcaoVoto.append(nulo)
-
-#def apuracao():
-
-def menu():
-    print("MENU")
-
-'''
+import math
 
 eleitores = []
 opcao_voto = []
@@ -123,93 +6,138 @@ opcao_voto = []
 id_candidato = 0
 id_eleitor = 0
 
-def cadastrar_eleitores():
-  try:
-    qtd_eleitor = 0
+def cadastrar_candidatos(id_candidato):
 
-    qtd_eleitor = int(input("Quantidade de eleitores: "))
+  qtd_candidato = 0
 
-    while qtd_eleitor < 1:
-      print("Quantidade Inválida!")
-      qtd_eleitor = int(input("Quantidade de eleitores pra eleição: "))
+  qtd_candidato = int(input("Quantidade de candidatos pra eleição: "))
 
-    print("Cadastro de Eleitores\n")
-
-    for cont in range(qtd_eleitor):
-
-      print("-------------------------------\n")
-
-      nome = input("Nome:\n")
-
-      eleitor = {
-        "nome": nome,
-        "qtdVotos": 0,
-      }
-
-      eleitores.append(eleitor)
-
-  except:
-    print("Faliceu")
-
-def cadastrar_candidatos():
-  try:
-    qtd_candidato = 0
-
+  while qtd_candidato < 1:
+    print("Quantidade Inválida!")
     qtd_candidato = int(input("Quantidade de candidatos pra eleição: "))
 
-    while qtd_candidato < 1:
-      print("Quantidade Inválida!")
-      qtd_candidato = int(input("Quantidade de candidatos pra eleição: "))
+  print("Cadastro de Candidatos\n")
 
-    print("Cadastro de Candidatos\n")
+  for cont in range(qtd_candidato):
+    print("-------------------------------\n")
 
-    for cont in range(qtd_candidato):
-      print("-------------------------------\n")
+    nome = input("Nome:\n")
 
-      nome = input("Nome:\n")
+    candidato = {
+      "id": id_candidato,
+      "nome": nome,
+      "qtdVotos": 0,
+    }
+    opcao_voto.append(candidato)
 
-      candidato = {
-      
-        "nome": nome,
-        "qtdVotos": 0,
-      }
+    id_candidato += 1
 
-      opcao_voto.append(candidato)
+  branco = {
+    "nome": "Voto branco",
+    "qtdVotos": 0,
+  }
+  opcao_voto.append(branco)
 
-      branco = {
-        "nome": "Voto branco",
-        "qtdVotos": 0,
-      }
-      opcao_voto.append(branco)
-
-      nulo = {
-        "nome": "Voto nulo",
-        "qtdVotos": 0,
-      }
-      opcao_voto.append(nulo)
+  nulo = {
+    "nome": "Voto nulo",
+    "qtdVotos": 0,
+  }
+  opcao_voto.append(nulo)
   
+  print("Cadastro(s) realizado(s) com sucesso!")
+
+def cadastrar_eleitores(id_eleitor):
+
+  qtd_eleitor = 0
+
+  qtd_eleitor = int(input("Quantidade de eleitores para o cadastro: "))
+
+  while qtd_candidato < 1:
+    print("Quantidade Inválida!")
+    qtd_candidato = int(input("Quantidade de eleitores para o cadastro: "))
+
+  print("Cadastro de Eleitores\n")
+
+  for cont in range(qtd_eleitor):
+    print("-------------------------------\n")
+
+    nome = input("Nome:\n")
+
+    eleitor = {
+      "id": id_eleitor,
+      "nome": nome,
+      "qtdVotos": 0,
+    }
+    eleitores.append(eleitor)
+
+    id_eleitor += 1
+  
+  print("Cadastro(s) realizado(s) com sucesso!")
+
+def visualizar_candidatos():
+  try:
+    for contador in opcao_voto:
+      if contador['nome'] == 'Voto branco':
+        break
+
+      print("------------------------\n")
+      print("ID: %s" % contador['id'])
+      print("Nome: %s" % contador['nome'])
+
   except:
     print("Faliceu")
 
 def visualizar_eleitores():
-    for contador in opcao_voto:
-        print("hehe boy")
+  try:
+    for contador in eleitores:
+
+      print("------------------------\n")
+      print("ID: %s" % contador['id'])
+      print("Nome: %s" % contador['nome'])
+
+  except:
+    print("Faliceu")
+
 
 def menu():
-  escolha = 0
+  escolha = 1
 
-  print(" ----------------- MENU ------------------ ")
-  print(" NUMBER - 1 --- CADASTRAR CANDIDATO ------ ")
-  print(" NUMBER - 2 --- CADASTRAR ELEITOR -------- ")
-  print(" NUMBER - 3 --- VOTAR -------------------- ")
-  print(" NUMBER - 4 --- APURAÇÃO ----------------- ")
-  print(" NUMBER - 0 --- SAIR --------------------- ")
-  print(" ----------------------------------------- ")
+  while escolha != 0:
+  
+    print(" ----------------- MENU ------------------ ")
+    print(" NUMBER - 1 --- CADASTRAR CANDIDATO ------ ")
+    print(" NUMBER - 2 --- CADASTRAR ELEITOR -------- ")
+    print(" NUMBER - 3 --- VISUALIZAR CANDIDATO ----- ")
+    print(" NUMBER - 4 --- VISUALIZAR ELEITOR ----- ")
 
-  escolha = int(input("Insira uma opção: "))  
+    print(" NUMBER - 5 --- VOTAR -------------------- ")
+    print(" NUMBER - 6 --- APURAÇÃO ----------------- ")
 
-  if escolha == 1:
-    cadastrar_candidatos()
+    print(" NUMBER - 0 --- SAIR --------------------- ")
+    print(" ----------------------------------------- ")
 
-  elif escolha == 2:
-    cadastrar_eleitores()
+    escolha = int(input("Insira uma opção: "))  
+
+    if escolha == 1:
+      cadastrar_candidatos(id_candidato)
+
+    elif escolha == 2:
+      cadastrar_eleitores(id_eleitor)
+      
+    elif escolha == 3:
+      visualizar_candidatos()
+
+    elif escolha == 4:
+      visualizar_eleitores()
+    
+    elif escolha == 0:
+      print("\nValeu Falou\n")
+      break
+  
+    else:
+      print("\nOpção Inválida!\n")
+
+#cd languages/Python/Codigos/curso-python/exercicios
+#python3
+#from desafio import *
+#menu()
