@@ -133,21 +133,23 @@ def apuracao(eleitores, opcao_voto):
     print("Total de votos: %s" % c['qtdVotos'])
     print("------------------------\n")
 
-  votoBranco = opcao_voto[-2]['qtdVotos']
-  votoNulo = opcao_voto[-1]['qtdVotos']
+  voto_branco = opcao_voto[-2]['qtdVotos']
+  voto_nulo = opcao_voto[-1]['qtdVotos']
 
-  aux = len(eleitores)
+  aux = len(opcao_voto)
 
-  percentualBranco = (votoBranco*100)/aux
-  percentualNulo = (votoNulo*100)/aux
-  print('Percentual de votos branco foi de "%0.2f"' % percentualBranco)
-  print('Percentual de votos nulo foi de "%0.2f"' % percentualNulo)
+  percentual_branco = (voto_branco*100)/aux
+  percentual_nulo = (voto_nulo*100)/aux
+
+  print('Percentual de votos branco foi de "%0.2f"' % percentual_branco)
+  print('Percentual de votos nulo foi de "%0.2f"' % percentual_nulo)
 
 def menu():
+
   escolha = 1
 
   while escolha != 0:
-  
+    
     print(" ----------------- MENU ---------------- ")
     print(" NUMBER - 1 --- CADASTRAR CANDIDATO ---- ")
     print(" NUMBER - 2 --- CADASTRAR ELEITOR ------ ")
