@@ -109,19 +109,39 @@ def votacao(eleitores, opcao_voto):
 
   for eleitor in eleitores:
     if select_id_eleitor == eleitor['id']:
+      print(eleitor['nome'])
       print("Listando Candidatos\n") 
-      for contador in opcao_voto:
+      m = 1
+      for c in opcao_voto:
+        
         print("------------------------\n")
-        print("Nome do Candidato: %s" % contador['nome'])
+        print(f"Nome do Candidato: {c['nome']} - Número: {m}")
+        m += 1
 
-      voto = int(input("Digite o ID do candidato: "))
+      voto = int(input("Digite o Número do candidato: "))
+
+      opcao_voto[voto-1]['qtdVotos'] += 1
+
+      print(m)
       
-      for z in opcao_voto:
-        if voto == z['num_voto']:
-          posicao = z['id']
-          opcao_voto[posicao]['qtdVotos'] += 1
-
       print("------------------------\n")
+
+def apuracao(eleitores, opcao_voto):
+  for c in opcao_voto:
+    print("------------------------\n")
+    print("Opção: %s" % c['nome'])
+    print("Total de votos: %s" % c['qtdVotos'])
+    print("------------------------\n")
+
+  votoBranco = opcao_voto[-2]['qtdVotos']
+  votoNulo = opcao_voto[-1]['qtdVotos']
+
+  aux = len(eleitores)
+
+  percentualBranco = (votoBranco*100)/aux
+  percentualNulo = (votoNulo*100)/aux
+  print('Percentual de votos branco foi de "%0.2f"' % percentualBranco)
+  print('Percentual de votos nulo foi de "%0.2f"' % percentualNulo)
 
 def menu():
   escolha = 1
@@ -135,8 +155,8 @@ def menu():
     print(" NUMBER - 4 --- VISUALIZAR ELEITOR ----- ")
     print(" NUMBER - 5 --- VOTAR ------------------ ")
     print(" NUMBER - 6 --- APURAÇÃO --------------- ")
-    print(" NUMBER - 0 --- SAIR --------------------- ")
-    print(" ----------------------------------------- ")
+    print(" NUMBER - 0 --- SAIR ------------------- ")
+    print(" --------------------------------------- ")
 
     escolha = int(input("Insira uma opção: "))  
 
@@ -155,6 +175,9 @@ def menu():
     elif escolha == 5:
       votacao(eleitores, opcao_voto)  
     
+    elif escolha == 6:
+      apuracao(eleitores, opcao_voto) 
+
     elif escolha == 0:
       print("\nValeu Falou\n")
       break
