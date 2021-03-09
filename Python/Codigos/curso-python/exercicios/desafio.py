@@ -5,6 +5,8 @@
 # No menu tbm tem a opção de votar ou ver apuração de votos
 # Dica coloque um campo no eleitor pra poder indicar quem vai votar
 
+'''
+
 opcaoVoto = []
 eleitores = 0
 qtdCandidatos = 0
@@ -112,3 +114,102 @@ def cadastrar_candidatos(qtdCandidatos):
 
 def menu():
     print("MENU")
+
+'''
+
+eleitores = []
+opcao_voto = []
+
+id_candidato = 0
+id_eleitor = 0
+
+def cadastrar_eleitores():
+  try:
+    qtd_eleitor = 0
+
+    qtd_eleitor = int(input("Quantidade de eleitores: "))
+
+    while qtd_eleitor < 1:
+      print("Quantidade Inválida!")
+      qtd_eleitor = int(input("Quantidade de eleitores pra eleição: "))
+
+    print("Cadastro de Eleitores\n")
+
+    for cont in range(qtd_eleitor):
+
+      print("-------------------------------\n")
+
+      nome = input("Nome:\n")
+
+      eleitor = {
+        "nome": nome,
+        "qtdVotos": 0,
+      }
+
+      eleitores.append(eleitor)
+
+  except:
+    print("Faliceu")
+
+def cadastrar_candidatos():
+  try:
+    qtd_candidato = 0
+
+    qtd_candidato = int(input("Quantidade de candidatos pra eleição: "))
+
+    while qtd_candidato < 1:
+      print("Quantidade Inválida!")
+      qtd_candidato = int(input("Quantidade de candidatos pra eleição: "))
+
+    print("Cadastro de Candidatos\n")
+
+    for cont in range(qtd_candidato):
+      print("-------------------------------\n")
+
+      nome = input("Nome:\n")
+
+      candidato = {
+      
+        "nome": nome,
+        "qtdVotos": 0,
+      }
+
+      opcao_voto.append(candidato)
+
+      branco = {
+        "nome": "Voto branco",
+        "qtdVotos": 0,
+      }
+      opcao_voto.append(branco)
+
+      nulo = {
+        "nome": "Voto nulo",
+        "qtdVotos": 0,
+      }
+      opcao_voto.append(nulo)
+  
+  except:
+    print("Faliceu")
+
+def visualizar_eleitores():
+    for contador in opcao_voto:
+        print("hehe boy")
+
+def menu():
+  escolha = 0
+
+  print(" ----------------- MENU ------------------ ")
+  print(" NUMBER - 1 --- CADASTRAR CANDIDATO ------ ")
+  print(" NUMBER - 2 --- CADASTRAR ELEITOR -------- ")
+  print(" NUMBER - 3 --- VOTAR -------------------- ")
+  print(" NUMBER - 4 --- APURAÇÃO ----------------- ")
+  print(" NUMBER - 0 --- SAIR --------------------- ")
+  print(" ----------------------------------------- ")
+
+  escolha = int(input("Insira uma opção: "))  
+
+  if escolha == 1:
+    cadastrar_candidatos()
+
+  elif escolha == 2:
+    cadastrar_eleitores()
