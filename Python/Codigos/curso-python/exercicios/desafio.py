@@ -1,5 +1,3 @@
-import math
-
 eleitores = []
 opcao_voto = []
 
@@ -19,9 +17,10 @@ def cadastrar_candidatos(id_candidato):
   print("Cadastro de Candidatos\n")
 
   for cont in range(qtd_candidato):
+  
     print("-------------------------------\n")
 
-    nome = input("Nome:\n")
+    nome = input("Nome do Candidato:\n")
 
     candidato = {
       "id": id_candidato,
@@ -52,9 +51,9 @@ def cadastrar_eleitores(id_eleitor):
 
   qtd_eleitor = int(input("Quantidade de eleitores para o cadastro: "))
 
-  while qtd_candidato < 1:
+  while qtd_eleitor < 1:
     print("Quantidade Inválida!")
-    qtd_candidato = int(input("Quantidade de eleitores para o cadastro: "))
+    qtd_eleitor = int(input("Quantidade de eleitores para o cadastro: "))
 
   print("Cadastro de Eleitores\n")
 
@@ -89,30 +88,53 @@ def visualizar_candidatos():
 
 def visualizar_eleitores():
   try:
+    print("------ Listando Eleitores ------\n")
     for contador in eleitores:
-
-      print("------------------------\n")
-      print("ID: %s" % contador['id'])
-      print("Nome: %s" % contador['nome'])
+      print("-------------------------------\n")
+      print("ID Eleitor: %s" % contador['id'])
+      print("Nome Eleitor: %s" % contador['nome'])
 
   except:
-    print("Faliceu")
+    print("Erro Inesperado ao Listar Eleitores")
 
+def votacao(eleitores, opcao_voto):
+  
+  print("------ Listando Eleitores ------\n")
+  for contador in eleitores:
+    print("-------------------------------\n")
+    print("ID Eleitor: %s" % contador['id'])
+    print("Nome Eleitor: %s" % contador['nome'])
+
+  select_id_eleitor = int(input("Digite o ID do eleitor: "))
+
+  for eleitor in eleitores:
+    if select_id_eleitor == eleitor['id']:
+      print("Listando Candidatos\n") 
+      for contador in opcao_voto:
+        print("------------------------\n")
+        print("Nome do Candidato: %s" % contador['nome'])
+
+      voto = int(input("Digite o ID do candidato: "))
+      
+      for z in opcao_voto:
+        if voto == z['num_voto']:
+          posicao = z['id']
+          opcao_voto[posicao]['qtdVotos'] += 1
+
+      print("------------------------\n")
 
 def menu():
   escolha = 1
 
   while escolha != 0:
   
-    print(" ----------------- MENU ------------------ ")
-    print(" NUMBER - 1 --- CADASTRAR CANDIDATO ------ ")
-    print(" NUMBER - 2 --- CADASTRAR ELEITOR -------- ")
-    print(" NUMBER - 3 --- VISUALIZAR CANDIDATO ----- ")
+    print(" ----------------- MENU ---------------- ")
+    print(" NUMBER - 1 --- CADASTRAR CANDIDATO ---- ")
+    print(" NUMBER - 2 --- CADASTRAR ELEITOR ------ ")
+    print(" NUMBER - 3 --- VISUALIZAR CANDIDATO --- ")
     print(" NUMBER - 4 --- VISUALIZAR ELEITOR ----- ")
-
-    print(" NUMBER - 5 --- VOTAR -------------------- ")
-    print(" NUMBER - 6 --- APURAÇÃO ----------------- ")
-
+    print(" NUMBER - 5 --- VOTAR ------------------ ")
+    print(" NUMBER - 6 --- APURAÇÃO --------------- ")
     print(" NUMBER - 0 --- SAIR --------------------- ")
     print(" ----------------------------------------- ")
 
@@ -129,6 +151,9 @@ def menu():
 
     elif escolha == 4:
       visualizar_eleitores()
+
+    elif escolha == 5:
+      votacao(eleitores, opcao_voto)  
     
     elif escolha == 0:
       print("\nValeu Falou\n")
