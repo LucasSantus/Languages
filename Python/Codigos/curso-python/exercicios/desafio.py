@@ -30,7 +30,7 @@ def cadastrar_candidatos(id_candidato):
         "id": id_candidato,
         "nome": nome,
         "qtdVotos": 0,
-        "votou": False,
+        "voto": 0,
       }
       opcao_voto.append(candidato)
 
@@ -70,13 +70,13 @@ def cadastrar_eleitores(id_eleitor):
 
     qtd_eleitor = 0
 
-    qtd_eleitor = int(input("\nInsira quantos candidatos serão cadastrados: "))
+    qtd_eleitor = int(input("\nInsira quantos eleitores serão cadastrados: "))
 
     while qtd_eleitor < 1:
       print("\n\n\n|------------------------------------------------------- |")
       print("\n|---------------- ERRO! Quantidade Inválida! --------------- |")
       print("\n|------------------------------------------------------- |\n\n\n")
-      qtd_eleitor = int(input("\nInsira quantos candidatos serão cadastrados: "))
+      qtd_eleitor = int(input("\nInsira quantos eleitores serão cadastrados: "))
 
     for cont in range(qtd_eleitor):
       print("-------------------------------\n")
@@ -92,9 +92,9 @@ def cadastrar_eleitores(id_eleitor):
 
       id_eleitor += 1
   
-      print("\n\n\n|------------------------------------------------------- |")
-      print("\n|-- O(s) Cadastro(s) fo(ram) realizado(s) com sucesso!-- |")
-      print("\n|------------------------------------------------------- |\n\n\n")
+    print("\n\n\n|------------------------------------------------------- |")
+    print("\n|-- O(s) Cadastro(s) fo(ram) realizado(s) com sucesso!-- |")
+    print("\n|------------------------------------------------------- |\n\n\n")
 
   except ValueError:
     print("\n\n\n|------------------------------------------------------- |")
@@ -132,6 +132,7 @@ def visualizar_eleitores():
     print("------ Listando Eleitores ------\n")
     for contador in eleitores:
       print("-------------------------------\n")
+
       print("Nome Eleitor: %s" % contador['nome'])
       print("Número Eleitor: %s" % contador['id'])
 
@@ -158,12 +159,12 @@ def votacao(eleitores, opcao_voto):
 
     for eleitor in eleitores:
       if select_id_eleitor == eleitor['id']:
-        if eleitor['votou'] == True:
+        if eleitor['voto'] == 1:
           print("\n\n\n|------------------------------------------------------- |")
           print("\n|-------------- ELEITOR JÁ REALIZOU A VOTAÇÃO! ------------- |")
           print("\n|------------------------------------------------------- |\n\n\n")
 
-        elif eleitor['votou'] == False:
+        elif eleitor['voto'] == 0:
           print("Listando Candidatos\n") 
           m = 1
           for c in opcao_voto:
@@ -175,7 +176,7 @@ def votacao(eleitores, opcao_voto):
           voto = int(input("Digite o Número do candidato: "))
 
           opcao_voto[voto-1]['qtdVotos'] += 1
-          opcao_voto[voto-1]['votou'] = True
+          opcao_voto[voto-1]['voto'] = 0
 
 def apuracao(eleitores, opcao_voto):
   for c in opcao_voto:
